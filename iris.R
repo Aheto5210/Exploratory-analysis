@@ -11,8 +11,11 @@ iris2 <- datasets::iris
 
 # Method 2
 # install.packages("RCurl")
+# install.packages("dplyr")
 
 library(RCurl)
+library(dplyr)
+
 iris3 <- read.csv(text = getURL("https://raw.githubusercontent.com/dataprofessor/data/master/iris.csv") )
 
 # View the data
@@ -46,7 +49,7 @@ skim(iris) # Perform skim to display summary statistics
 
 # Group data by Species then perform skim
 iris %>% 
-  dplyr::group_by(Species) %>% 
+  group_by(Species) %>% 
   skim() 
 
 #############################
